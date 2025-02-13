@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
+import Navbar from "./components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +24,7 @@ const queryClient = new QueryClient();
 // };
 
 export default function RootLayout({ children }) {
+  const [isOpen, setOpen] = useState(false)
   return (
     <QueryClientProvider client={queryClient}>
       <html lang="en">
@@ -33,7 +35,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <main>
+          <Navbar
+            openNav={isOpen}
+            onOpenSideNav={() => setOpen(true)}
+          />
+          {children}
+        </main>
       </body>
     </html>
     </QueryClientProvider>
