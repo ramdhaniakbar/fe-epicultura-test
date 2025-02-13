@@ -6,6 +6,7 @@ import "./globals.css";
 import Head from "next/head";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,10 @@ export default function RootLayout({ children }) {
         </Head>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <QueryClientProvider client={queryClient}>
+            <Toaster
+              position="top-center"
+              reverseOrder={false}
+            />
             <div className="flex flex-col h-screen">
               {/* Navbar tetap di atas */}
               <Navbar />
