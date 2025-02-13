@@ -8,6 +8,7 @@ import {
 } from "@tanstack/react-table"
 import { useState } from "react"
 import axios from "axios"
+import Link from "next/link"
 
 const columns = [
   { accessorKey: "unit", header: "UNIT" },
@@ -63,9 +64,9 @@ export default function MeetingRoomTable() {
           <h2 className="text-2xl font-bold">Ruang Meeting</h2>
           <p className="text-gray-500">Ruang Meeting</p>
         </div>
-        <button className="px-4 py-2 bg-[#4D768E] text-white rounded-lg hover:bg-[#3D5F75]">
+        <Link href='/meet/create' className="px-4 py-2 bg-[#4D768E] text-white rounded-lg hover:bg-[#3D5F75]">
           + Pesan Ruangan
-        </button>
+        </Link>
       </div>
       <div className="p-6 bg-white shadow-md rounded-lg">
         {/* Table */}
